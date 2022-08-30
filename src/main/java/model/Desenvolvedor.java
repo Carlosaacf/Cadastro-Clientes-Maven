@@ -4,17 +4,23 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name ="db_pessoa")
-public class Pessoa {
+@Table(name ="db_desenvolvedor")
+public class Desenvolvedor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-
     @Column(length = 50, nullable = false)
     private String nome;
     @Column(length = 13, nullable = false, unique = true)
     private String cpf;
+
+    @Column(length = 9, nullable = false, unique = true)
+    private String genero;
+
+    @Column(length = 10, nullable = false, unique = true)
+    private String anoNascimento;
+
 
     @Override
     public String toString() {
@@ -22,6 +28,8 @@ public class Pessoa {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", cpf='" + cpf + '\'' +
+                ", genero='" + genero + '\'' +
+                ", anoNascimento='" + anoNascimento + '\'' +
                 '}';
     }
 
@@ -48,4 +56,12 @@ public class Pessoa {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
+    public String getGenero() { return genero;}
+
+    public void setGenero(String genero) { this.genero = genero;}
+
+    public String getAnoNascimento() { return anoNascimento;}
+
+    public void setAnoNascimento(String anoNascimento) { this.anoNascimento = anoNascimento;}
 }

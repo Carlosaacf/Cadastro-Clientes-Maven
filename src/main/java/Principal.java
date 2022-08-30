@@ -1,19 +1,16 @@
-import model.Pessoa;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import dao.DesenvolvedorDao;
+import model.Desenvolvedor;
 
 public class Principal {
     public static void main(String[] args) {
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("moderna-jpa");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        Desenvolvedor p1 = new Desenvolvedor();
+        p1.setId(20L);
+        p1.setNome("Carlos");
+        p1.setCpf("8845471423");
 
-        Pessoa pessoa = new Pessoa();
-        pessoa.setNome("Eduardo");
-        pessoa.setCpf("999999999");
-        entityManager.persist(pessoa);
+        DesenvolvedorDao desenvolvedorDao = new DesenvolvedorDao();
+        desenvolvedorDao.listarTodos();
 
     }
 }
