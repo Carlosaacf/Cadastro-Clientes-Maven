@@ -6,7 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="cadastro-cliente" />
+        <module name="desafio-modernabackend" />
+        <module name="desafiomoderna-backend" />
       </profile>
     </annotationProcessing>
   </component>
