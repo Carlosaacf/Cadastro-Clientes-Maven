@@ -50,7 +50,7 @@ public class LinguagemDao {
 
     public void listarTodos(){
 
-        var sql = "from Pessoa";
+        var sql = "from Linguagem";
         TypedQuery typedQuery = entityManager.createQuery(sql, Linguagem.class);
         List<Linguagem> listaLinguagens = typedQuery.getResultList();
 
