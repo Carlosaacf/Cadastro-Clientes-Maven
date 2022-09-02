@@ -24,7 +24,7 @@ public class Desenvolvedor {
 
     @Override
     public String toString() {
-        return "Pessoa{" +
+        return "Desenvolvedor{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", cpf='" + cpf + '\'' +

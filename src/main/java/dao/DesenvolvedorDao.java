@@ -13,33 +13,33 @@ public class DesenvolvedorDao {
     EntityManagerFactory entityManagerFactory = null;
     EntityManager entityManager = null;
 
-    public DesenvolvedorDao(){
+    public DesenvolvedorDao() {
         entityManagerFactory = Persistence.createEntityManagerFactory("moderna-jpa");
         entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
     }
 
-    public void salvar(Desenvolvedor desenvolvedor){
+    public void salvar(Desenvolvedor desenvolvedor) {
         entityManager.persist(desenvolvedor);
         entityManager.getTransaction().commit();
         entityManager.close();
     }
 
-    public Desenvolvedor pesquisarPorId(Long id){
-        var pessoaEncontrada = entityManager.find(Desenvolvedor.class, id);
+    public Desenvolvedor pesquisarPorId(Long id) {
+        var desenvolvedorEncontrado = entityManager.find(Desenvolvedor.class, id);
         entityManager.close();
-        return pessoaEncontrada;
+        return desenvolvedorEncontrado;
 
     }
 
-    public void deletar(Long id){
-        var pessoaEncontrada = entityManager.find(Desenvolvedor.class, id);
-        entityManager.remove(pessoaEncontrada);
+    public void deletar(Long id) {
+        var desenvolvedorEncontrado = entityManager.find(Desenvolvedor.class, id);
+        entityManager.remove(desenvolvedorEncontrado);
         entityManager.getTransaction().commit();
         entityManager.close();
     }
 
-    public void atualizar(Desenvolvedor desenvolvedor){
+    public void atualizar(Desenvolvedor desenvolvedor) {
         entityManager.merge(desenvolvedor);
         entityManager.getTransaction().commit();
         entityManager.close();
@@ -47,14 +47,14 @@ public class DesenvolvedorDao {
 
     }
 
-    public void listarTodos(){
+    public void listarTodos() {
 
-        var sql = "from Pessoa";
+        var sql = "from Desenvolvedor";
         TypedQuery typedQuery = entityManager.createQuery(sql, Desenvolvedor.class);
-        List<Desenvolvedor> listaDesenvolvedors = typedQuery.getResultList();
+        List<Desenvolvedor> listaDesenvolvedor = typedQuery.getResultList();
 
-        for (Desenvolvedor desenvolvedorPercorrida : listaDesenvolvedors){
-            System.out.println(desenvolvedorPercorrida);
+        for (Desenvolvedor desenvolvedorPercorrido : listaDesenvolvedor) {
+            System.out.println(desenvolvedorPercorrido);
         }
 
         entityManager.close();
